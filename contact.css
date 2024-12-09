@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgba(220, 218, 218, 0.283);
+}
+
+/* Navbar */
+.nav {
+  height: 4rem;
+  background-color: rgb(220, 218, 218);
+  width: 100%;
+  position: sticky;
+  top: 0; /* Added 'top' to ensure it stays sticky */
+  display: flex;
+  align-items: center; /* Align items vertically in the navbar */
+  justify-content: space-between; /* Ensure space between the logo and navigation options */
+  padding: 0 2rem; /* Padding for spacing */
+  z-index: 10; /* Ensure navbar is above other content */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 3rem; /* Adjusted height for better logo fit */
+  width: 3rem; /* Ensure logo has a consistent aspect ratio */
+  border-radius: 50%; /* Ensure the logo is circular */
+  background-image: url(./logo.png);
+  background-size: cover; /* Use 'cover' for proper scaling */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.nav-option {
+  display: flex;
+  align-items: center;
+}
+
+.nav-option ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Added gap for spacing between items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-option ul li {
+  font-size: 1.2rem; /* Adjusted font size for better readability */
+  color: black;
+  cursor: pointer; /* Pointer cursor for navigation items */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-option ul li a:hover {
+  color: green; /* Added hover effect */
+}
+.nav-option ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+/*form*/
+.form-div{
+margin: auto;
+margin-top: 2rem;
+  width: 25%;
+  height: 60vh;
+  border: 2px solid black;
+  border-radius: 7px;
+  background-color: rgba(115, 111, 111, 0.098);
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.637);
+
+}
+.form{
+  text-align: center;
+}
+.content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+input{
+  padding: 7px 7px 7px 7px;
+  border: 2px solid rgb(226, 224, 224);
+  border-radius: 7px;
+}
+input:hover{
+  border: 2px solid blue;
+}
+#textarea{
+  padding: 5px 5px 5px 5px;
+  border: 2px solid rgb(226, 224, 224);
+  border-radius: 7px;
+}
+#textarea:hover{
+  border: 2px solid blue;
+}
+.buttonsec{
+  margin-top: 2rem;
+}
+.btn{
+  padding: 10px 15px 10px 15px;
+  text-align: center;
+  border-radius: 9px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}
+.btn:hover{
+  background-color: purple;
+}
+
+
+

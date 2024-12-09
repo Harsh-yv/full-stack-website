@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <style>
+    .step { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Signup</h1>
+  <form id="signupForm">
+    <div id="step1" class="step">
+      <input type="email" id="signupEmail" placeholder="Email" required><br>
+      <input type="password" id="signupPassword" placeholder="Password" required><br>
+      <button type="button" onclick="nextStep(1)">Next</button>
+    </div>
+    <div id="step2" class="step">
+      <input type="text" id="fullName" placeholder="Full Name" required><br>
+      <input type="date" id="dob" placeholder="Date of Birth" required><br>
+      <input type="tel" id="phone" placeholder="Phone Number" required><br>
+      <input type="text" id="guardianName" placeholder="Guardian's Name" required><br>
+      <input type="tel" id="guardianPhone" placeholder="Guardian's Phone Number" required><br>
+      <button type="button" onclick="nextStep(2)">Next</button>
+    </div>
+    <div id="step3" class="step">
+      <label>Select Subjects:</label><br>
+      
+      <div>
+        <input type="checkbox" id="math" value="Math"> Math<br>
+        <label for="mathTutor">Select Tutor for Math:</label>
+        <select id="mathTutor">
+          <option value="John Smith">John Smith</option>
+          <option value="tutor2">Tutor 2</option>
+          <option value="tutor3">Tutor 3</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="checkbox" id="science" value="Science"> Science<br>
+        <label for="scienceTutor">Select Tutor for Science:</label>
+        <select id="scienceTutor">
+          <option value="Sarah Johnson">Sarah Johnson</option>
+          <option value="tutor2">Tutor 2</option>
+          <option value="tutor3">Tutor 3</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="checkbox" id="english" value="English"> English<br>
+        <label for="englishTutor">Select Tutor for English:</label>
+        <select id="englishTutor">
+          <option value="Emily Brown">Emily Brown</option>
+          <option value="tutor2">Tutor 2</option>
+          <option value="tutor3">Tutor 3</option>
+        </select>
+      </div>
+
+      <br><br>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    let currentStep = 0;
+    function showStep(step) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((stepElement, index) => {
+        if (index === step) {
+          stepElement.style.display = 'block';
+        } else {
+          stepElement.style.display = 'none';
+        }
+      });
+    }
+    function nextStep(step) {
+      currentStep = step;
+      showStep(currentStep);
+    }
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const fullName = document.getElementById('fullName').value;
+      const dob = document.getElementById('dob').value;
+      const phone = document.getElementById('phone').value;
+      const guardianName = document.getElementById('guardianName').value;
+      const guardianPhone = document.getElementById('guardianPhone').value;
+
+      const subjects = [];
+      const tutors = {};
+      if (document.getElementById('math').checked) {
+        subjects.push('Math');
+        tutors['Math'] = document.getElementById('mathTutor').value;
+      }
+      if (document.getElementById('science').checked) {
+        subjects.push('Science');
+        tutors['Science'] = document.getElementById('scienceTutor').value;
+      }
+      if (document.getElementById('english').checked) {
+        subjects.push('English');
+        tutors['English'] = document.getElementById('englishTutor').value;
+      }
+
+      const response = await fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+          fullName,
+          dob,
+          phone,
+          guardianName,
+          guardianPhone,
+          subjects,
+          tutors
+        }),
+      });
+
+      const data = await response.json();
+      alert(data.message);
+      if (data.success) {
+        window.location.href = "index.html";}
+    });
+    showStep(currentStep);
+  </script>
+</body>
+</html>

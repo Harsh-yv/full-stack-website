@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.nav {
+  height: 4rem;
+  background-color: rgb(220, 218, 218);
+  width: 100%;
+  position: sticky;
+  top: 0; 
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 10; 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 3rem;
+  width: 3rem; 
+  border-radius: 50%;
+  background-image: url(./logo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.nav-option {
+  display: flex;
+  align-items: center;
+}
+
+.nav-option ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-option ul li {
+  font-size: 1.2rem;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-option ul li a:hover {
+  color: green;
+}
+.nav-option ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+/* Slider */
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease; 
+ 
+}
+
+.slider-wrapper .slider-item {
+  flex: 0 0 100%;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.slider-wrapper .slider-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1; 
+}
+
+.slider-wrapper .slider-item:nth-child(1)::before {
+  background-image: url("./pexels-didsss-2675061.jpg");
+}
+
+.slider-wrapper .slider-item:nth-child(2)::before {
+  background-image: url("./pexels-fauxels-3184636.jpg");
+}
+
+.slider-wrapper .slider-item:nth-child(3)::before {
+  background-image: url("./pexels-max-fischer-5212345.jpg");
+}
+
+.slider-wrapper .slider-item:nth-child(4)::before {
+  background-image: url("./pexels-pixabay-301926.jpg");
+}
+
+.slider-wrapper .slider-item:nth-child(5)::before {
+  background-image: url("./pexels-jeshoots-com-147458-714698.jpg");
+}
+
+.slider-wrapper .slider-item .slide-content {
+  color: black;
+  z-index: 2; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1400px;
+  position: relative;
+}
+
+.slider-wrapper .slider-item .slide-content > * {
+  max-width: 35%;
+}
+
+.slide-subtitle {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.slide-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.slide-description {
+  margin-top: 25px;
+  line-height: 1.5; /* Improve readability */
+}
+
+.slide-button {
+  color: black;
+  width: 250px;
+  padding: 13px 0;
+  display: block;
+  margin-top: 45px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid black;
+  /* transition: background 0.5s ease, color 0.5s ease; */
+}
+
+.slide-button:hover {
+  color: white; /* Swapped colors for better contrast */
+  background: black;
+}
+
+/* About Us */
+.about-us {
+  height: 60vh;
+  width: 100%;
+  background-color: rgb(220, 218, 218);
+  display: flex;
+}
+
+.about-us-content {
+  width: 75%;
+}
+
+.about-us-title {
+  margin-top: 3rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  color: blue;
+}
+
+.about-us-title:hover {
+  color: brown;
+}
+
+.about-info {
+  margin: 1rem 1rem 0 2rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.about-us-img {
+  width: 25%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.about-us-img img {
+  width: 75%;
+  height: 75%;
+  border: 2px solid black;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.about-us-img img:hover {
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Testimonial Section */
+.testimonial {
+  width: 100%;
+  height: 80vh;
+  background-color: rgba(107, 105, 105, 0.916);
+  padding-bottom: 100px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.section_heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 40px;
+  text-transform: capitalize;
+  color: yellow;
+  text-align: center; /* Center-align heading */
+}
+
+.carousel-item {
+  min-height: 500px;
+  position: relative;
+}
+
+.carousel-img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #dee2e6;
+}
+
+.carousel-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  left: 15%;
+  bottom: 50px;
+  padding: 50px 0;
+  color: #dee2e6;
+  text-align: center; /* Ensure content is centered */
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.testimonial-icon {
+  font-size: 2.5rem;
+  color: #dee2e6;
+  margin-top: -5px;
+  margin-right: 5px;
+}
+.footer{
+  /* margin-top: 100px; */
+  height: 150px;
+  width: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.797);
+  
+}
+.footer-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  text-align: center; /* Centers text within the container */
+  height: 100px; /* Example height to make vertical centering noticeable */
+  background-color: #333; /* Optional background color for better visibility */
+}
